@@ -8,6 +8,12 @@ export default function App() {
   const [state, setState] = useState<GameState>({
     status: 'menu',
     background: 'https://picsum.photos/seed/sosis-elegant/1080/1920',
+    soundtrack: 'https://assets.mixkit.co/active_storage/sfx/123/123-preview.mp3',
+    gameSoundtrack: 'https://assets.mixkit.co/active_storage/sfx/124/124-preview.mp3',
+    rainSound: 'https://assets.mixkit.co/active_storage/sfx/2433/2433-preview.mp3',
+    layer4Audio: 'https://assets.mixkit.co/active_storage/sfx/125/125-preview.mp3',
+    ktpImage: 'https://picsum.photos/seed/ktp-sample/600/400',
+    videoOverlay: 'https://assets.mixkit.co/video/preview/mixkit-rain-on-a-window-pane-1522-large.mp4',
     isDevMode: localStorage.getItem('sosis_love_dev') === 'true',
     musicVolume: 0.7,
     rainVolume: 0.5,
@@ -50,12 +56,12 @@ export default function App() {
       setState(prev => ({
         ...prev,
         background: savedBg || prev.background,
-        ktpImage: savedKtp || undefined,
-        videoOverlay: savedVideo || undefined,
-        soundtrack: savedSoundtrack || undefined,
-        gameSoundtrack: savedGameSoundtrack || undefined,
-        rainSound: savedRainSound || undefined,
-        layer4Audio: savedLayer4Audio || undefined
+        ktpImage: savedKtp || prev.ktpImage,
+        videoOverlay: savedVideo || prev.videoOverlay,
+        soundtrack: savedSoundtrack || prev.soundtrack,
+        gameSoundtrack: savedGameSoundtrack || prev.gameSoundtrack,
+        rainSound: savedRainSound || prev.rainSound,
+        layer4Audio: savedLayer4Audio || prev.layer4Audio
       }));
     };
     loadAssets();
